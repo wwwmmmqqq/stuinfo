@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.school_student_table{
+	width:90%;
+}
+.school_student_table td{
+	padding-left:15px;
+}

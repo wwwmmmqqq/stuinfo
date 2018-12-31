@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-26 17:01:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_ordinarymanager" table="STUINFO_ORDINARYMANAGER">
+        <id name="ordinarymanager_id" type="java.lang.String">
+            <column name="ORDINARYMANAGER_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="ordinarymanager_account" type="java.lang.String">
+            <column name="ORDINARYMANAGER_ACCOUNT" />
+        </property>
+        <property name="ordinarymanager_password" type="java.lang.String">
+            <column name="ORDINARYMANAGER_PASSWORD" />
+        </property>
+        <property name="ordinarymanager_name" type="java.lang.String">
+            <column name="ORDINARYMANAGER_NAME" />
+        </property>
+        <property name="ordinarymanager_infocreate" type="java.lang.String">
+            <column name="ORDINARYMANAGER_INFOCREATE" />
+        </property>
+        <property name="ordinarymanager__infomodified" type="java.lang.String">
+            <column name="ORDINARYMANAGER__INFOMODIFIED" />
+        </property>
+    </class>
+</hibernate-mapping>

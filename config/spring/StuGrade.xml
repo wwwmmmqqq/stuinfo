@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="gradeAction" class="com.stuinfo.action.GradeAction"
+		scope="prototype">
+		<property name="gradeService" ref="gradeService"></property>
+	</bean>
+
+	<bean id="gradeService" class="com.stuinfo.service.impl.GradeServiceImpl">
+		<property name="gradeDao" ref="gradeDao"></property>
+	</bean>
+
+	<bean id="gradeDao" class="com.stuinfo.dao.impl.GradeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

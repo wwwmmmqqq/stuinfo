@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-26 17:01:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_stubaseinfo" table="STUINFO_STUBASEINFO">
+        <id name="stu_id" type="java.lang.String">
+            <column name="STU_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="stu_account" type="java.lang.String">
+            <column name="STU_ACCOUNT" />
+        </property>
+        <property name="stu_name" type="java.lang.String">
+            <column name="STU_NAME" />
+        </property>
+        <property name="stu_sex" type="java.lang.String">
+            <column name="STU_SEX" />
+        </property>
+        <property name="stu_adress" type="java.lang.String">
+            <column name="STU_ADRESS" />
+        </property>
+        <property name="stu_bir" type="java.lang.String">
+            <column name="STU_BIR" />
+        </property>
+        <property name="stu_photo" type="java.lang.String">
+            <column name="STU_PHOTO" />
+        </property>
+        <property name="stu_familytype" type="java.lang.String">
+            <column name="STU_FAMILYTYPE" />
+        </property>
+        <property name="stu_nation" type="java.lang.String">
+            <column name="STU_NATION" />
+        </property>
+        <property name="stu_policits" type="java.lang.String">
+            <column name="STU_POLICITS" />
+        </property>
+        <property name="stu_idcard" type="java.lang.String">
+            <column name="STU_IDCARD" />
+        </property>
+        <property name="stu_phenumber" type="java.lang.String">
+            <column name="STU_PHENUMBER" />
+        </property>
+        <property name="stu_fathername" type="java.lang.String">
+            <column name="STU_FATHERNAME" />
+        </property>
+        <property name="stu_fathernum" type="java.lang.String">
+            <column name="STU_FATHERNUM" />
+        </property>
+        <property name="stu_mothername" type="java.lang.String">
+            <column name="STU_MOTHERNAME" />
+        </property>
+        <property name="stu_mothernum" type="java.lang.String">
+            <column name="STU_MOTHERNUM" />
+        </property>
+        <property name="stu_lev" type="java.lang.String">
+            <column name="STU_LEV" />
+        </property>
+        <property name="stu_change" type="java.lang.String">
+            <column name="STU_CHANGE" />
+        </property>
+        <property name="stu_college" type="java.lang.String">
+            <column name="STU_COLLEGE" />
+        </property>
+        <property name="stu_const" type="java.lang.String">
+            <column name="STU_CONST" />
+        </property>
+        <property name="stu_major" type="java.lang.String">
+            <column name="STU_MAJOR" />
+        </property>
+        <property name="stu_class_id" type="java.lang.String">
+            <column name="STU_CLASS_ID" />
+        </property>
+        <property name="stu_grade_id" type="java.lang.String">
+            <column name="STU_GRADE_ID" />
+        </property>
+        <property name="stu_year" type="java.lang.String">
+            <column name="STU_YEAR" />
+        </property>
+        <property name="stu_infocreate" type="java.lang.String">
+            <column name="STU_INFOCREATE" />
+        </property>
+        <property name="stu_infomodified" type="java.lang.String">
+            <column name="STU_INFOMODIFIED" />
+        </property>
+    </class>
+</hibernate-mapping>

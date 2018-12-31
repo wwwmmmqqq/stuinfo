@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-26 17:01:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_stu_onjob" table="STUINFO_STU_ONJOB">
+        <id name="stu_id" type="java.lang.String">
+            <column name="STU_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="stu_job_id" type="java.lang.String">
+            <column name="STU_JOB_ID" />
+        </property>
+        <property name="stu_job_comname" type="java.lang.String">
+            <column name="STU_JOB_COMNAME" />
+        </property>
+        <property name="stu_job_comadress" type="java.lang.String">
+            <column name="STU_JOB_COMADRESS" />
+        </property>
+        <property name="stu_job_constitute_code" type="java.lang.String">
+            <column name="STU_JOB_CONSTITUTE_CODE" />
+        </property>
+        <property name="stu_job_industry" type="java.lang.String">
+            <column name="STU_JOB_INDUSTRY" />
+        </property>
+        <property name="stu_job_contactname" type="java.lang.String">
+            <column name="STU_JOB_CONTACTNAME" />
+        </property>
+        <property name="stu_job_contactnum" type="java.lang.String">
+            <column name="STU_JOB_CONTACTNUM" />
+        </property>
+        <property name="stu_job_indate" type="java.lang.String">
+            <column name="STU_JOB_INDATE" />
+        </property>
+        <property name="stu_job_outdate" type="java.lang.String">
+            <column name="STU_JOB_OUTDATE" />
+        </property>
+        <property name="stu_job_status" type="java.lang.String">
+            <column name="STU_JOB_STATUS" />
+        </property>
+        <property name="stu_job_infocreate" type="java.lang.String">
+            <column name="STU_JOB_INFOCREATE" />
+        </property>
+        <property name="stu_job__infomodified" type="java.lang.String">
+            <column name="STU_JOB__INFOMODIFIED" />
+        </property>
+    </class>
+</hibernate-mapping>

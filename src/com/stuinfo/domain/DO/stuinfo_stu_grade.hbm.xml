@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-27 11:45:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_stu_grade" table="STUINFO_STU_GRADE">
+        <id name="stu_grade_id" type="java.lang.String">
+            <column name="STU_GRADE_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="stu_grade_name" type="java.lang.String">
+            <column name="STU_GRADE_NAME" />
+        </property>
+        <property name="stu_grade_infocreate" type="java.lang.String">
+            <column name="STU_GRADE_INFOCREATE" />
+        </property>
+        <property name="stu_grade__infomodified" type="java.lang.String">
+            <column name="STU_GRADE__INFOMODIFIED" />
+        </property>
+    </class>
+</hibernate-mapping>

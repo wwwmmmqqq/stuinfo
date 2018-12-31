@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-28 23:15:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_stu_major" table="STUINFO_STU_MAJOR">
+        <id name="major_id" type="java.lang.String">
+            <column name="MAJOR_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="major_name" type="java.lang.String">
+            <column name="MAJOR_NAME" />
+        </property>
+        <property name="major__infocreate" type="java.lang.String">
+            <column name="MAJOR__INFOCREATE" />
+        </property>
+        <property name="major___infomodified" type="java.lang.String">
+            <column name="MAJOR___INFOMODIFIED" />
+        </property>
+    </class>
+</hibernate-mapping>
