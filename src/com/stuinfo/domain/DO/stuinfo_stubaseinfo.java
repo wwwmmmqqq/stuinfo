@@ -3,6 +3,7 @@ package com.stuinfo.domain.DO;
 public class stuinfo_stubaseinfo {
 	private String stu_id;
 	private String stu_account;
+	private String stu_password;
 	private String stu_name;
 	private String stu_sex;
 	private String stu_adress;
@@ -23,22 +24,23 @@ public class stuinfo_stubaseinfo {
 	private String stu_const;
 	private String stu_major;
 	private String stu_class_id;
-	private String stu_grade_id;
 	private String stu_year;
+	private String stu_status;
 	private String stu_infocreate;
 	private String stu_infomodified;
 
 	@Override
 	public String toString() {
-		return "stuinfo_stubaseinfo [stu_id=" + stu_id + ", stu_account=" + stu_account + ", stu_name=" + stu_name
-				+ ", stu_sex=" + stu_sex + ", stu_adress=" + stu_adress + ", stu_bir=" + stu_bir + ", stu_photo="
-				+ stu_photo + ", stu_familytype=" + stu_familytype + ", stu_nation=" + stu_nation + ", stu_policits="
-				+ stu_policits + ", stu_idcard=" + stu_idcard + ", stu_phenumber=" + stu_phenumber + ", stu_fathername="
-				+ stu_fathername + ", stu_fathernum=" + stu_fathernum + ", stu_mothername=" + stu_mothername
-				+ ", stu_mothernum=" + stu_mothernum + ", stu_lev=" + stu_lev + ", stu_change=" + stu_change
-				+ ", stu_college=" + stu_college + ", stu_const=" + stu_const + ", stu_major=" + stu_major
-				+ ", stu_class_id=" + stu_class_id + ", stu_grade_id=" + stu_grade_id + ", stu_year=" + stu_year
-				+ ", stu_infocreate=" + stu_infocreate + ", stu_infomodified=" + stu_infomodified + "]";
+		return "stuinfo_stubaseinfo [stu_id=" + stu_id + ", stu_account=" + stu_account + ", stu_password="
+				+ stu_password + ", stu_name=" + stu_name + ", stu_sex=" + stu_sex + ", stu_adress=" + stu_adress
+				+ ", stu_bir=" + stu_bir + ", stu_photo=" + stu_photo + ", stu_familytype=" + stu_familytype
+				+ ", stu_nation=" + stu_nation + ", stu_policits=" + stu_policits + ", stu_idcard=" + stu_idcard
+				+ ", stu_phenumber=" + stu_phenumber + ", stu_fathername=" + stu_fathername + ", stu_fathernum="
+				+ stu_fathernum + ", stu_mothername=" + stu_mothername + ", stu_mothernum=" + stu_mothernum
+				+ ", stu_lev=" + stu_lev + ", stu_change=" + stu_change + ", stu_college=" + stu_college
+				+ ", stu_const=" + stu_const + ", stu_major=" + stu_major + ", stu_class_id=" + stu_class_id
+				+ ", stu_year=" + stu_year + ", stu_status=" + stu_status + ", stu_infocreate=" + stu_infocreate
+				+ ", stu_infomodified=" + stu_infomodified + "]";
 	}
 
 	public String getStu_id() {
@@ -55,6 +57,14 @@ public class stuinfo_stubaseinfo {
 
 	public void setStu_account(String stu_account) {
 		this.stu_account = stu_account;
+	}
+
+	public String getStu_password() {
+		return stu_password;
+	}
+
+	public void setStu_password(String stu_password) {
+		this.stu_password = stu_password;
 	}
 
 	public String getStu_name() {
@@ -217,20 +227,20 @@ public class stuinfo_stubaseinfo {
 		this.stu_class_id = stu_class_id;
 	}
 
-	public String getStu_grade_id() {
-		return stu_grade_id;
-	}
-
-	public void setStu_grade_id(String stu_grade_id) {
-		this.stu_grade_id = stu_grade_id;
-	}
-
 	public String getStu_year() {
 		return stu_year;
 	}
 
 	public void setStu_year(String stu_year) {
 		this.stu_year = stu_year;
+	}
+
+	public String getStu_status() {
+		return stu_status;
+	}
+
+	public void setStu_status(String stu_status) {
+		this.stu_status = stu_status;
 	}
 
 	public String getStu_infocreate() {

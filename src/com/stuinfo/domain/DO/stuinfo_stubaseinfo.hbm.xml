@@ -11,6 +11,9 @@
         <property name="stu_account" type="java.lang.String">
             <column name="STU_ACCOUNT" />
         </property>
+          <property name="stu_password" type="java.lang.String">
+            <column name="STU_PASSWORD" />
+        </property>
         <property name="stu_name" type="java.lang.String">
             <column name="STU_NAME" />
         </property>
@@ -71,11 +74,11 @@
         <property name="stu_class_id" type="java.lang.String">
             <column name="STU_CLASS_ID" />
         </property>
-        <property name="stu_grade_id" type="java.lang.String">
-            <column name="STU_GRADE_ID" />
-        </property>
         <property name="stu_year" type="java.lang.String">
             <column name="STU_YEAR" />
+        </property>
+         <property name="stu_status" type="java.lang.String">
+            <column name="STU_STATUS" />
         </property>
         <property name="stu_infocreate" type="java.lang.String">
             <column name="STU_INFOCREATE" />

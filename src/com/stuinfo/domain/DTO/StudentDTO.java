@@ -51,4 +51,12 @@ public class StudentDTO {
 		this.stuinfoStuClass = stuinfoStuClass;
 	}
 
+	public stuinfo_stubaseinfo getStuinfoStuBaseinfo() {
+		return stuinfoStuBaseinfo;
+	}
+
+	public void setStuinfoStuBaseinfo(stuinfo_stubaseinfo stuinfoStuBaseinfo) {
+		this.stuinfoStuBaseinfo = stuinfoStuBaseinfo;
+	}
+
 }

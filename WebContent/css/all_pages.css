@@ -5,3 +5,69 @@
 .school_student_table td{
 	padding-left:15px;
 }
+.base_student_table td{
+	padding-left:25px;
+}
+.modal_postgraduate_student_table td{
+	padding-left:25px;
+}
+.modal_army_student_table td{
+		padding-left:25px;
+}
+.modal_nojob_student_table td{
+	padding-left:25px;
+}
+.first_td{
+	font-weight:bold;
+}
+/*  .table > tbody > tr > td{
+	border-top: 0px;
+	padding: 5px 2px;
+}  */
+.info_title{
+	width:12%;
+	font-weight:bold;
+}
+
+    .show{
+     display: block;
+    }
+    .hide{
+     display: none;
+    }
+    
+   /*  Student.jsp */
+    .title_td{
+    width:35%;
+    }
+   /* 导出按钮居最右边 */
+    .btn_to_excel{
+    float:right;
+    }
+    
+    /* tr的下框线 */
+    .border_tr{
+    border-bottom: 2px solid #E6E8EB;
+    }
+    
+ /*    .btn_position{
+   float:right; 
+    } */
+    
+    .slimscroll{
+    color:red;
+    }
+    
+    .redpoint{
+    height:10px !important;
+  width:10px !important;
+ border-radius:16px; 
+background-color: #ea6f5a;
+    }
+    
+   .active{
+    color:#0070E0 !important;
+    }
+ #Notice_panel>span:hover{
+ cursor: pointer;
+ }

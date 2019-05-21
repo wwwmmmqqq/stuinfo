@@ -38,6 +38,10 @@ public class GradeAction extends ActionSupport implements ServletResponseAware, 
 		http_response.getWriter().write(gson.toJson(list_Student_Grade));
 	}
 
+	public void test2() throws Exception {
+		System.out.println("bbb");
+	}
+
 	/**
 	 * @throws IOException
 	 * @说明 手动添加年级

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="studentAction" class="com.stuinfo.action.StudentAction"
+		scope="prototype">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+
+	<bean id="studentService" class="com.stuinfo.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+
+	<bean id="studentDao" class="com.stuinfo.dao.impl.StudentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

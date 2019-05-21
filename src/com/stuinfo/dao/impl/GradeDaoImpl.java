@@ -25,7 +25,7 @@ public class GradeDaoImpl implements GradeDao {
 	public List<stuinfo_stu_grade> listGradeAll() {
 		List<stuinfo_stu_grade> listGrade = new ArrayList<>();
 		Session session = getSession();
-		String hql = "from stuinfo_stu_grade";
+		String hql = "from stuinfo_stu_grade order by stu_grade_infocreate";
 		Query query = session.createQuery(hql);
 		listGrade = query.list();
 		session.clear();

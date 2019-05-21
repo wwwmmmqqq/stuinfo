@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-27 11:45:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.stuinfo.domain.DO.stuinfo_notice" table="STUINFO_NOTICE">
+        <id name="notice_id" type="java.lang.String">
+            <column name="NOTICE_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="notice_content" type="java.lang.String">
+            <column name="NOTICE_CONTENT" />
+        </property>
+       <property name="notice_stu_grade" type="java.lang.String">
+            <column name="NOTICE_STU_GRADE" />
+        </property>
+         <property name="notice_stu_major" type="java.lang.String">
+            <column name="NOTICE_STU_MAJOR" />
+        </property>
+         <property name="notice_stu_class" type="java.lang.String">
+            <column name="NOTICE_STU_CLASS" />
+        </property>
+          <property name="notice_stu_account" type="java.lang.String">
+            <column name="NOTICE_STU_ACCOUNT" />
+        </property>
+         <property name="notice_stu_name" type="java.lang.String">
+            <column name="NOTICE_STU_NAME" />
+        </property>
+        <property name="notice_status" type="java.lang.String">
+            <column name="NOTICE_STATUS" />
+        </property>
+        <property name="notice_infocreate" type="java.lang.String">
+            <column name="NOTICE_INFOCREATE" />
+        </property>
+          <property name="notice_infomodified" type="java.lang.String">
+            <column name="NOTICE_INFOMODIFIED" />
+        </property>
+    </class>  
+</hibernate-mapping>

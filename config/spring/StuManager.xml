@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="managerAction" class="com.stuinfo.action.ManagerAction"
+		scope="prototype">
+		<property name="managerService" ref="managerService"></property>
+	</bean>
+
+	<bean id="managerService" class="com.stuinfo.service.impl.ManagerServiceImpl">
+		<property name="managerDao" ref="managerDao"></property>
+	</bean>
+
+	<bean id="managerDao" class="com.stuinfo.dao.impl.ManagerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

@@ -30,7 +30,7 @@ public class ClassDaoImpl implements ClassDao {
 		String hql = " select new com.stuinfo.domain.DTO.ClassAndGradeDTO(stuinfoStuGrade,stuinfoStuClass) "//
 				+ "from  stuinfo_stu_class stuinfoStuClass," //
 				+ "stuinfo_stu_grade stuinfoStuGrade "//
-				+ "where stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id ";
+				+ "where stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id order by  stuinfoStuClass.stu_class_infocreate";
 		Query query = session.createQuery(hql);
 		listClass = query.list();
 		session.clear();

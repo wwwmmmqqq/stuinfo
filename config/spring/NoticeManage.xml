@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="noticeManageAction" class="com.stuinfo.action.NoticeManageAction"
+		scope="prototype">
+		<property name="noticeManageService" ref="noticeManageService"></property>
+	</bean>
+
+	<bean id="noticeManageService" class="com.stuinfo.service.impl.NoticeManageServiceImpl">
+		<property name="noticeManageDao" ref="noticeManageDao"></property>
+	</bean>
+
+	<bean id="noticeManageDao" class="com.stuinfo.dao.impl.NoticeManageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

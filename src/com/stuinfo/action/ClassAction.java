@@ -37,6 +37,10 @@ public class ClassAction extends ActionSupport implements ServletResponseAware, 
 		http_response.getWriter().write(gson.toJson(list_Student_Class));
 	}
 
+	public void test1() throws Exception {
+		System.out.println("aaa");
+	}
+
 	/**
 	 * 
 	 * @throws Exception

@@ -44,10 +44,10 @@ body {
 	color: #3d464c
 }
 
-a,
+ a,
 a:hover {
 	color: #2b2b2b
-}
+} 
 
 p {
 	line-height: 1.6
@@ -2019,7 +2019,7 @@ th {
 }
 
 .dropdown-menu li a:hover {
-	background: #f7f7f7;
+	/* background: #f7f7f7; */
 	text-decoration: none
 }
 
@@ -2256,7 +2256,7 @@ th {
 	font-weight: 400
 }
 
-.dropdown-notifications .dropdown-oc li a span.notification-info small {
+.dropdown-notifications .dropdown-oc li a p.notification-info small {
 	color: #aaa
 }
 
@@ -2503,13 +2503,20 @@ th {
 	color: #637282!important
 }
 
-.page-header .navbar-nav>li>a>img {
+/* .page-header .navbar-nav>li>a>img {
 	width: 36px;
 	margin-top: -10px;
 	display: inline-block;
 	vertical-align: top
+} */
+.page-header .navbar-nav>li>a>img {
+ 	display:none; 
+	width: 30px;
+margin-top: -15px;
+/* display: inline-block; */
+vertical-align: top;
+margin-left: -15px;
 }
-
 .page-header .navbar-nav>li.user-dropdown>a {
 	margin-right: 0
 }
@@ -3862,7 +3869,7 @@ body.error-page {
 .login-page {
 	width: 100%;
 	height: 100%;
-	background: url(http://via.placeholder.com/2880x1800?text=Background+Image) center center no-repeat fixed;
+	background: url(../images/rsgc2_1.jpg) center center no-repeat fixed;
 	background-size: cover;
 	padding: 0
 }
