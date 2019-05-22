@@ -25,7 +25,7 @@ function UpdateJobStudentBaseInfo() {
 	var jc = $
 			.confirm({
 				columnClass : 'col-md-8 col-md-offset-3',
-				title : '学生详细信息',
+				title : '修改已就业学生信息',
 				content : '<table id="table_stuinfo_update" class="table table-hover" style="text-align: center;width:90%;">'
 						+ '<tbody></tbody>' + '</table>',
 				buttons : {
