@@ -265,7 +265,7 @@ function UpdateNoJobStudent(thisStudentInfo) {
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>出生年月：</td>'
-											+ '<td><input class="form-control  "  id="stu_bir_modify" type="text" value="'
+											+ '<td><input class="form-control laydate-icon"  id="stu_bir_modify"  type="text" onclick="time()" value="'
 											+ noJObStudentById[0].stuinfoStuBaseinfo.stu_bir
 											+ '"></td>'
 											+ '<td>户口类型：</td>'
@@ -293,7 +293,7 @@ function UpdateNoJobStudent(thisStudentInfo) {
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>民族：</td>'
 											+ '<td><input class="form-control  "  id="stu_nation_modify" type="text" value="'
-											+ noJObStudentById[0].stuinfoStuBaseinfo.stu_bir
+											+ noJObStudentById[0].stuinfoStuBaseinfo.stu_nation
 											+ '"></td>'
 											+ '<td>政治面貌：</td>'
 											+ '<td>'

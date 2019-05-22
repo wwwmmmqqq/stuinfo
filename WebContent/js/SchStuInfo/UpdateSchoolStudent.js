@@ -22,7 +22,7 @@ function Get_Student_Class() {
 function updateSchoolStudentInfo(thisStudentInfo) {
 	var jc = $
 			.confirm({
-				columnClass : 'col-md-8 col-md-offset-3',
+				columnClass : 'col-md-6 col-md-offset-3',
 				title : '学生详细信息',
 				content : '<table id="table_stuinfo_update" class="table table-hover" style="text-align: center;width:90%;">'
 						+ '<tbody></tbody>' + '</table>',
@@ -271,7 +271,9 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>出生年月：</td>'
-											+ '<td><input class="form-control  date-picker "  id="stu_bir_modify" type="text" ></td>'
+											+ '<td><input class="form-control laydate-icon"  id="stu_bir_modify"  type="text" onclick="time()" value="'
+											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_bir
+											+ '"></td>'
 											+ '<td>户口类型：</td>'
 											+ '<td>'
 											+ '<select class="form-control " id="stu_familytype_modify" >'
@@ -297,7 +299,7 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>民族：</td>'
 											+ '<td><input class="form-control  "  id="stu_nation_modify" type="text" value="'
-											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_bir
+											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_nation
 											+ '"></td>'
 											+ '<td>政治面貌：</td>'
 											+ '<td>'
@@ -474,7 +476,7 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 											+ '" ></td>'
 
 									var select = document
-											.getElementById("stu_year_modify   ");
+											.getElementById("stu_year_modify");
 									var options = select.options;
 									for (i = 0; i < options.length; i++) {
 										var value_i = options[i].value;
