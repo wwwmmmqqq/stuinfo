@@ -44,6 +44,8 @@ function detailPostGraduateStudentById(this_i) {
 				stu_name.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_name;
 				stu_photo.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_photo;
 				stu_sex.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_sex;
+				stu_adress.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_adress;
+				stu_fathernum.value == postGraStudentListById[0].stuinfoStuBaseinfo.stu_fathernum;
 				stu_bir.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_bir;
 				stu_familytype.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_familytype;
 				stu_policits.value = postGraStudentListById[0].stuinfoStuBaseinfo.stu_policits;

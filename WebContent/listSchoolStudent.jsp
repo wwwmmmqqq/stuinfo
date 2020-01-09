@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -35,6 +35,7 @@
 	rel="stylesheet" type="text/css" />
 
 <link href="<%=basePath%>css/all_pages.css" rel="stylesheet">
+<link href="<%=basePath%>css/toastr.css" rel="stylesheet">
 <link href="<%=basePath%>css/need/laydate.css" rel="stylesheet">
 <link href="<%=basePath%>css/jquery-confirm.css" rel="stylesheet">
 <!-- Theme Styles -->
@@ -110,17 +111,22 @@
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 
-					<div class="collapse navbar-collapse"
+					<div 	class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li><a href="javascript:void(0)"
 								id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
 							<li><a href="javascript:void(0)" id="toggle-fullscreen"><i
 									class="fa fa-expand"></i></a></li>
-							<li><a href="javascript:void(0)" id="search-button"><i
-									class="fa fa-search"></i></a></li>
+							<li><a data-toggle="collapse" data-parent="#accordion" 
+				   href="#search_group"><i
+									class="fa fa-search "></i></a></li>
+									
 						</ul>
+						
+						
 						<ul class="nav navbar-nav navbar-right">
+						<li class="user_name" id="user_name"><span>欢迎<span class="name_color">管理员</span>登录</span></li>
 							<li class="dropdown"><a href="javascript:void(0)"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false"  onclick="GetNonReadNotices()"><i
@@ -130,7 +136,6 @@
 										class="drop-title-link"><i class="fa fa-angle-right"></i></a></li>
 									<li class="slimscroll dropdown-notifications ">
 										<ul class="list-unstyled dropdown-oc" id="notice_ul">
-										
 											<!-- <li id="history_li"><a href="#">历史通知记录...</a></li> -->
 										</ul>
 									</li>
@@ -139,7 +144,8 @@
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">  <i class="fa fa-user"></i></a>
 								<ul class="dropdown-menu">
-								<li><a href="#">导入</a></li>
+								<li><a  onclick="importExcel()">导入</a><input type="file" id="inport_input" style="display: none;" onchange="importToDB(this)"/></li>
+								<!-- <li><a href="#" onclick="ChooseInfoToExcel()" data-toggle="modal" data-target="#to_excel_modal" >导出excel表</a></li> -->
 									<li><a onclick="UpdatePassword()">修改密码</a></li>
 									<li><a href="<%=basePath%>/loginAndLogout/logout">退出登录</a></li>
 								</ul></li>
@@ -150,20 +156,50 @@
 				<!-- /.container-fluid --> </nav>
 			</div>
 			<!-- /Page Header -->
+				<!-- Search Content -->
+			<div class=" panel-collapse collapse" id="search_group">
+			<div class="panel panel-body">
+		<div id="select_group" >
+	<div class="col-md-3 input_group">
+<!-- 	<input type="text"  id="account" placeholder="请输入搜索条件" class="form-control"/> -->
+			 <table>
+				<tbody>
+					<td>
+							<label>请选择搜索条件：</label>
+					</td>
+					<td>
+						<select id="sele" class="form-control">
+		<option selected="selected" disabled="disabled" >请选择</option>
+<option value="account_学号">学号</option>
+	<option value="name_姓名" >姓名</option>
+	<option value="major_专业" >专业</option>
+	</select>
+					</td>
+				</tbody>
+			</table> 
+	</div>
+		</div>
+		<div  class="col-xs-2 sure_search">
+			<a><button class="btn btn-success " onclick="SureSearch()">确认搜索</button></a>
+			</div>
+			</div>	
+				
+		
+			</div>
+				<!--/ Search Content -->
 			<!-- Page Inner -->
 			<div class="page-inner">
 				<div class="page-title">
 					<h3 class="breadcrumb-header">学生信息管理</h3>
 				</div>
+					
 				<div id="main-wrapper">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-white" id="js-alerts">
 								<div class="panel-heading clearfix">
 									<lable class="panel-title">在校学生信息</lable>
-									<button id="export_to_excel" class="btn btn-primary btn_to_excel"
-										data-toggle="modal" data-target="#to_excel_modal"  onclick="ChooseInfoToExcel()"
-										>导出excel</button>
+								
 								</div>
 
 								<div class="panel-body">
@@ -223,8 +259,6 @@
 										<td><input class="form-control " id="stu_name"
 											type="text"></td>
 										<td>照片：</td>
-										<td><input class="form-control  " id="stu_photo"
-											type="text"></td>
 									</tr>
 									<tr>
 										<td>性别：</td>
@@ -348,60 +382,10 @@
 					
 				</div>
 				<div class="modal-body" id="to_excel_tltle">
-				<!-- <div id="all_re_check">
-				</div>
-				<div id="info_title"></div> -->
-				<!-- <table class="table">
-				<tr class="border_tr">
-							<td><input type="checkbox" class="form-control" /> <label>全选</label></td>
-							<td><input type="checkbox" class="form-control" /> <label>反选</label></td>
-							<td></td>
-							<td></td>
-						</tr>
-				</table>
-					<table class="table">
-						
-						<tr>
-							<td><input type="checkbox" class="form-control" /> <label>学号</label></td>
-							<td><input type="checkbox" class="form-control" /> <label>姓名</label></td>
-							<td><input type="checkbox" class="form-control" /> <label>性别</label></td>
-							<td><input type="checkbox" class="form-control" /> <label>家庭住址</label></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /> <label>出生年月</label></td>
-							<td><input type="checkbox" /> <label>户口类型</label></td>
-							<td><input type="checkbox" /> <label>民族</label></td>
-							<td><input type="checkbox" /> <label>政治面貌</label></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /> <label>证件号码</label></td>
-							<td><input type="checkbox" /> <label>本人联系电话</label></td>
-							<td><input type="checkbox" /> <label>父亲姓名</label></td>
-							<td><input type="checkbox" /> <label>父亲联系电话</label></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /> <label>母亲姓名</label></td>
-							<td><input type="checkbox" /> <label>母亲联系电话</label></td>
-							<td><input type="checkbox" /> <label>层次</label></td>
-							<td><input type="checkbox" /> <label>学校</label></td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /> <label>学院</label></td>
-							<td><input type="checkbox" /> <label>专业</label></td>
-							<td><input type="checkbox" /> <label>年级</label></td>
-							<td><input type="checkbox" /> <label>班级</label></td>
-						</tr>
-						<tr class="border_tr">
-							<td><input type="checkbox" /> <label>学制</label></td>
-							<td><input type="checkbox" /> <label>学籍异动</label></td>
-							<td></td>
-							<td></td>
-						</tr>
-					</table> -->
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-info" data-dismiss="modal"
-						onclick="SureExport()">确定</button>
+						onclick="get()">确定</button>
 					<button type="button" class="btn " data-dismiss="modal">关闭</button>
 				</div>
 			</div>
@@ -413,6 +397,7 @@
 			/* Get_Student_Grade(); */
 			Get_Student_Class();
 			NoticeRedPoint();
+			SearchByOption();
 		}
 		
 		function time(){
@@ -452,6 +437,30 @@ laydate(end);
 	<!-- Javascripts -->
 	<script src="<%=basePath%>assets/plugins/jquery/jquery-3.1.0.min.js"></script>
 	<script src="<%=basePath%>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	function importExcel(){
+		var inport_input=document.getElementById("inport_input");
+		inport_input.click();
+	}
+	function importToDB(inp){
+		var xhr = false;
+		var formData = new FormData();
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			var message;
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					alert("aa")
+				} else {
+					alert(xhr.status);
+				}
+			}
+		}
+		formData.append("file",inp.files[0]);
+		xhr.open("POST", "/stuinfo/student/importToDB");
+		xhr.send(formData);
+	}
+	</script>
 	<script
 		src="<%=basePath%>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script
@@ -469,6 +478,7 @@ laydate(end);
 	<script src="<%=basePath%>js/SchStuInfo/DeleteSchoolStudent.js"></script>
 	<script src="<%=basePath%>js/laydate.js"></script>
 	<script src="<%=basePath%>js/Common/CommonJs.js"></script>
+	<script src="<%=basePath%>js/toastr.js"></script>
 	<script src="<%=basePath%>js/jquery-confirm.js"></script>
 </body>
 </html>

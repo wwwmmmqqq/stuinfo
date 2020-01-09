@@ -71,3 +71,23 @@ background-color: #ea6f5a;
  #Notice_panel>span:hover{
  cursor: pointer;
  }
+ .search_group{
+ min-height:80px;
+ }
+.input_group{
+				padding-top: 10px;
+				padding-bottom:10px;
+			}
+			.sure_search{
+			padding-top: 10px;
+			float:right;
+			}
+			.display_input{
+				display: none;
+			}
+			.user_name{
+			margin-top:18px;
+			}
+.name_color{
+	color:#00ec00;
+}

@@ -41,7 +41,7 @@ function UpdateJobStudentBaseInfo() {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											jc.close();
 										}
 									} else {
@@ -622,7 +622,7 @@ function UpdateJobInfo(thisJobInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											detailJobStudent();
 											jc.close();
 										}

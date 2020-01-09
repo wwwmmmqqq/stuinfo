@@ -48,7 +48,7 @@
                     <div id="main-wrapper" class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6 col-md-3 login-box">
-                                <h4 class="login-title">毕业就业信息管理系统</h4>
+                                <h4 class="login-title">毕业生就业信息管理系统</h4>
                                 <form>
                                     <div class="form-group">
                                         <label >账号</label>

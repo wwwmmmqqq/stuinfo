@@ -10,4 +10,5 @@ function BaseInfoToogle() {
 		document.getElementById("base_panel").classList.add('show');
 	}
 
+	var base_info_table = document.getElementById("base_info_table");
 }

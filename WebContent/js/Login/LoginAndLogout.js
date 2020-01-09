@@ -17,19 +17,19 @@ function login() {
 				var data = new Array();
 				switch (xhr.responseText) {
 				case "账号不存在": {
-					alert("账号不存在");
+					toastr.error("账号不存在");
 					login_btn.disabled = "";
 					login_btn.innerHTML = '登录';
 					break;
 				}
 				case "密码不正确": {
-					alert("密码不正确");
+					toastr.error("密码不正确");
 					login_btn.disabled = "";
 					login_btn.innerHTML = '登录';
 					break;
 				}
 				case "教师登录成功": {
-					alert("教师登录成功");
+					toastr.success("教师登录成功");
 					break;
 				}
 				case "学生登录成功": {
@@ -52,7 +52,8 @@ function login() {
 	xhr.open("POST", "/stuinfo/loginAndLogout/login");
 	xhr.send(formData);
 }
-// 登出
-function Logout() {
-
+// 登录用户名
+function LoginInformation() {
+	var user_name = document.getElementById("user_name");
+	user_name.innerHTML = '<span>欢迎<span class="name_color">聂志朋</span>登录</span>'
 }

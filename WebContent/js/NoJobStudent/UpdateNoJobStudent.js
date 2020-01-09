@@ -39,7 +39,7 @@ function UpdateNoJobStudent(thisStudentInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											GetAllNoJobStudentByPageAndSearch(noJobStudentList.pageIndex);
 											jc.close();
 										}

@@ -7,7 +7,6 @@ function detailArmyStudentById(this_i) {
 
 	var stu_account = document.getElementById('stu_account');
 	var stu_name = document.getElementById('stu_name');
-	var stu_photo = document.getElementById('stu_photo');
 	var stu_sex = document.getElementById('stu_sex');
 	var stu_adress = document.getElementById('stu_adress');
 	var stu_bir = document.getElementById('stu_bir');
@@ -42,8 +41,9 @@ function detailArmyStudentById(this_i) {
 
 				stu_account.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_account;
 				stu_name.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_name;
-				stu_photo.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_photo;
 				stu_sex.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_sex;
+				stu_adress.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_adress;
+				stu_fathernum.value == armyStudentListById[0].stuinfoStuBaseinfo.stu_fathernum;
 				stu_bir.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_bir;
 				stu_familytype.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_familytype;
 				stu_policits.value = armyStudentListById[0].stuinfoStuBaseinfo.stu_policits;

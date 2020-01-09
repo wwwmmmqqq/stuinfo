@@ -131,6 +131,8 @@ function detailBaseJobStudent() {
 				stu_name.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_name;
 				stu_photo.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_photo;
 				stu_sex.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_sex;
+				stu_adress.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_adress;
+				stu_fathernum.value == schoolStudentListById[0].stuinfoStuBaseinfo.stu_fathernum;
 				stu_bir.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_bir;
 				stu_familytype.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_familytype;
 				stu_policits.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_policits;

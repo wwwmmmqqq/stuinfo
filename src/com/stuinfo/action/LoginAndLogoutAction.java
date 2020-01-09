@@ -31,7 +31,7 @@ public class LoginAndLogoutAction extends ActionSupport implements ServletRespon
 	private ManagerService managerService;
 	private HttpServletResponse http_response;
 	private HttpServletRequest http_request;
-	private stuinfo_stubaseinfo newStudent;
+	private stuinfo_ordinarymanager newStudent;
 	private stuinfo_stu_onjob stuinfoStuOnjob;
 	private stuinfo_stubaseinfo stuinfoStuBaseinfo;
 	private StudentDTO studentDTO;
@@ -50,7 +50,6 @@ public class LoginAndLogoutAction extends ActionSupport implements ServletRespon
 	 */
 	public void login() throws IOException {
 		http_response.setContentType("text/html;charset=utf-8");
-		System.out.println(password);
 		switch (loginAndLogoutService.login(username, password)) {
 		case -1: {
 			http_response.getWriter().write("账号不存在");
@@ -192,11 +191,11 @@ public class LoginAndLogoutAction extends ActionSupport implements ServletRespon
 		return "student";
 	}
 
-	public stuinfo_stubaseinfo getNewStudent() {
+	public stuinfo_ordinarymanager getNewStudent() {
 		return newStudent;
 	}
 
-	public void setNewStudent(stuinfo_stubaseinfo newStudent) {
+	public void setNewStudent(stuinfo_ordinarymanager newStudent) {
 		this.newStudent = newStudent;
 	}
 

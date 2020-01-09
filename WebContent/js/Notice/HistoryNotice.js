@@ -68,7 +68,7 @@ function flipAllNotices(flipPage) {
 	switch (flipPage) {
 	case 1: {
 		if (NoticeList.pageIndex - 1 == 0) {
-			alert("已经是第一页了");
+			toastr.warning("已经是第一页了");
 		} else {
 			ListAllNoticesByPageAndSearch(NoticeList.pageIndex - 1);
 		}
@@ -76,7 +76,7 @@ function flipAllNotices(flipPage) {
 	}
 	case 2: {
 		if (NoticeList.pageIndex == NoticeList.totalPages) {
-			alert("已经是最后一页了");
+			toastr.warning("已经是最后一页了");
 		} else {
 			ListAllNoticesByPageAndSearch(NoticeList.pageIndex + 1);
 		}
@@ -156,7 +156,7 @@ function flipAllReadNotices(flipPage) {
 	switch (flipPage) {
 	case 1: {
 		if (noticeReadList.pageIndex - 1 == 0) {
-			alert("已经是第一页了");
+			toastr.warning("已经是第一页了");
 		} else {
 			ListAllReadNoticesByPageAndSearch(noticeReadList.pageIndex - 1);
 		}
@@ -164,7 +164,7 @@ function flipAllReadNotices(flipPage) {
 	}
 	case 2: {
 		if (noticeReadList.pageIndex == noticeReadList.totalPages) {
-			alert("已经是最后一页了");
+			toastr.warning("已经是最后一页了");
 		} else {
 			ListAllReadNoticesByPageAndSearch(noticeReadList.pageIndex + 1);
 		}

@@ -31,6 +31,7 @@
       
         <!-- Theme Styles -->
         <link href="<%=basePath%>css/all_pages.css" rel="stylesheet">
+        <link href="<%=basePath%>css/toastr.css" rel="stylesheet">
         <link href="<%=basePath%>assets/css/ecaps.min.css" rel="stylesheet">
         <link href="<%=basePath%>assets/css/custom.css" rel="stylesheet">
 
@@ -111,9 +112,9 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
                                     <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
-                                    <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
+                                <li class="user_name"><span>欢迎<span class="name_color">管理员</span>登录</span></li>
                                     <li class="dropdown"><a href="javascript:void(0)"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false"  onclick="GetNonReadNotices()"><i
@@ -190,5 +191,6 @@
         <script src="<%=basePath%>assets/js/ecaps.min.js"></script>
         <script src="<%=basePath%>js/Notice/HistoryNotice.js"></script>
         <script src="<%=basePath%>js/Common/CommonJs.js"></script>
+        <script src="<%=basePath%>js/toastr.js"></script>
     </body>
 </html>

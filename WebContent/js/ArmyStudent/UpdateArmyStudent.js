@@ -38,7 +38,7 @@ function UpdateArmyStudent(thisStudentInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											GetAllArmyStudentByPageAndSearch(armyStudentList.pageIndex);
 											jc.close();
 										}
@@ -57,11 +57,11 @@ function UpdateArmyStudent(thisStudentInfo) {
 											"stuinfoStuBaseinfo.stu_id",
 											document
 													.getElementById("stu_id_modify").value);
-							formData
-									.append(
-											"stuinfoStuBaseinfo.stu_name",
-											document
-													.getElementById("stu_name_modify").value);
+							/*
+							 * formData .append( "stuinfoStuBaseinfo.stu_name",
+							 * document
+							 * .getElementById("stu_name_modify").value);
+							 */
 							formData
 									.append(
 											"stuinfoStuBaseinfo.stu_photo",
@@ -226,11 +226,13 @@ function UpdateArmyStudent(thisStudentInfo) {
 											+ '<td><input class="form-control  "  id="stu_name_modify" type="text" value="'
 											+ armyStudentById[0].stuinfoStuBaseinfo.stu_name
 											+ '"></td>'
-											+ '<td>照片：</td>'
-											+ '<input class="form-control  " id="stu_photo_modify" type="text" value="'
-											+ armyStudentById[0].stuinfoStuBaseinfo.stu_photo
-											+ '" >'
-
+									/*
+									 * + '<td>照片：</td>' + '<input
+									 * class="form-control "
+									 * id="stu_photo_modify" type="text"
+									 * value="' +
+									 * armyStudentById[0].stuinfoStuBaseinfo.stu_photo + '" >'
+									 */
 									new_tr_1 = document.createElement("tr");
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);

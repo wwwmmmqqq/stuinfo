@@ -33,6 +33,11 @@
 	src="<%=basePath%>assets/plugins/vertical-timeline/js/modernizr.js"></script>
 <link href="<%=basePath%>css/all_pages.css" rel="stylesheet"
 	type="text/css" />
+	<link
+	href="<%=basePath%>assets/plugins/bootstrap-datepicker/css/datepicker3.css"
+	rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/toastr.css" rel="stylesheet">
+	<link href="<%=basePath%>css/need/laydate.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Page Container -->
@@ -89,16 +94,15 @@
 								id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
 							<li><a href="javascript:void(0)" id="toggle-fullscreen"><i
 									class="fa fa-expand"></i></a></li>
-							<li><a href="javascript:void(0)" id="search-button"><i
-									class="fa fa-search"></i></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+						<li class="user_name" id="user_name"></li>
 							<li class="dropdown user-dropdown"><a href="#"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false">  <i class="fa fa-user"></i></a>
 								<ul class="dropdown-menu">
 									<li><a onclick="UpdatePassword()">修改密码</a></li>
-									<li><a href="#">退出登录</a></li>
+									<li><a href="<%=basePath%>/loginAndLogout/logout">退出登录</a></li>
 								</ul></li>
 						</ul>
 					</div>
@@ -112,21 +116,26 @@
 				<div id="main-wrapper">
 					<div class="row">
 						<div class="col-md-12">
-						<button type="button" class="btn btn-success m-b-sm" onclick="BaseInfoToogle()" >查看基本信息</button> 
+						<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseTwo">
+						<button type="button" class="btn btn-success m-b-sm" >查看基本信息</button> 
+							</a>
 						<button type="button" class="btn btn-primary m-b-sm" data-toggle="modal" data-target="#job_recoder_modal"  onclick="AddJobRecode()" >添加工作记录</button>
-							<div class="panel panel-white hide" id="base_panel" >
-							 
-								<div class="panel-heading clearfix">
-									<lable class="panel-title" style="font-size:18px">基本信息</lable>
+							 <div id="collapseTwo" class="panel-collapse collapse">
 								<div class="panel-body">
-									<table class="table base_info_table">
+								<div class="panel-heading clearfix">
+								
+									<lable class="panel-title" style="font-size:18px">基本信息</lable>
+									
+											
+									<table class="table base_info_table" id="base_info_table">
 										<tbody>
 											<tr>
 												<td class="info_title">学号：
 												<td>15478011
 												<td class="info_title">姓名：
 												<td> 翁梦倩
-												<td class="info_title">照片：
+												<td>
 												<td>
 												<td>
 												<td>
@@ -254,7 +263,40 @@
 	<script type="text/javascript">
 		window.onload = function() {
 			ListJobRecord();
-		
+			LoginInformation();
+		}
+		function time(){
+			!function(){
+	laydate.skin('danlan');//切换皮肤，请查看skins下面皮肤库
+	laydate({elem: '#add_stu_job_indate'});//绑定元素
+}();
+//日期范围限制
+var start = {
+    elem: '#start',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(), //设定最小日期为当前日期
+    max: '2099-06-16', //最大日期
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+         end.min = datas; //开始日选好后，重置结束日的最小日期
+         end.start = datas //将结束日的初始值设定为开始日
+    }
+};
+
+var end = {
+    elem: '#end',
+    format: 'YYYY-MM-DD',
+    min: laydate.now(),
+    max: '2099-06-16',
+    istime: true,
+    istoday: false,
+    choose: function(datas){
+        start.max = datas; //结束日选好后，充值开始日的最大日期
+    }
+};
+laydate(start);
+laydate(end);
 		}
 	</script>
 	<!-- Javascripts -->
@@ -269,8 +311,17 @@
 	<script src="<%=basePath%>assets/js/ecaps.min.js"></script>
 	<%-- <script src="<%=basePath%>assets/js/pages/timeline.js"></script> --%>
 	<script src="<%=basePath%>js/jquery-confirm.js"></script>
-	<script src="<%=basePath%>js/Student/Student.js"></script>
+	<%-- <script src="<%=basePath%>js/Student/Student.js"></script> --%>
+	
+	<script
+		src="<%=basePath%>assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+	<script
+		src="<%=basePath%>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 	<script src="<%=basePath%>js/Student/addJobRecord.js"></script>
 	<script src="<%=basePath%>js/Student/ListJobRecord.js"></script>
+	<script src="<%=basePath%>js/Common/CommonJs.js"></script>
+	<script src="<%=basePath%>js/Login/LoginAndLogout.js"></script>
+	<script src="<%=basePath%>js/toastr.js"></script>
+	<script src="<%=basePath%>js/laydate.js"></script>
 </body>
 </html>

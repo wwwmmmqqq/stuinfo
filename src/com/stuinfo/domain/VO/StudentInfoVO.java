@@ -24,6 +24,9 @@ public class StudentInfoVO<T> {
 
 	// 是否有下一页
 	private boolean HaveNextPage = false;
+	private String stu_account;
+	private String stu_name;
+	private String stu_major;
 
 	// 所有在校学生信息
 	private List<StudentDTO> StudentDTO;// 与当前页和每一页的记录数有关
@@ -36,6 +39,7 @@ public class StudentInfoVO<T> {
 	public String toString() {
 		return "StudentInfoVO [pageIndex=" + pageIndex + ", totalRecords=" + totalRecords + ", pageSize=" + pageSize
 				+ ", totalPages=" + totalPages + ", HavePrePage=" + HavePrePage + ", HaveNextPage=" + HaveNextPage
+				+ ", stu_account=" + stu_account + ", stu_name=" + stu_name + ", stu_major=" + stu_major
 				+ ", StudentDTO=" + StudentDTO + ", jobStudentDTO=" + jobStudentDTO + ", studentList=" + studentList
 				+ "]";
 	}
@@ -110,6 +114,30 @@ public class StudentInfoVO<T> {
 
 	public void setStudentList(List<T> studentList) {
 		this.studentList = studentList;
+	}
+
+	public String getStu_account() {
+		return stu_account;
+	}
+
+	public void setStu_account(String stu_account) {
+		this.stu_account = stu_account;
+	}
+
+	public String getStu_name() {
+		return stu_name;
+	}
+
+	public void setStu_name(String stu_name) {
+		this.stu_name = stu_name;
+	}
+
+	public String getStu_major() {
+		return stu_major;
+	}
+
+	public void setStu_major(String stu_major) {
+		this.stu_major = stu_major;
 	}
 
 }

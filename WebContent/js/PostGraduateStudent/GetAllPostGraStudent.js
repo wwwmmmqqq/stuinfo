@@ -116,7 +116,7 @@ function flip(flipPage) {
 
 	case 1: {
 		if (postGraduateStudentList.pageIndex - 1 == 0) {
-			alert("已经是第一页了");
+			toastr.warning("已经是第一页了");
 		} else {
 			GetAllSchoolStudentsByPageAndSearch(postGraduateStudentList.pageIndex - 1);
 		}
@@ -124,7 +124,7 @@ function flip(flipPage) {
 	}
 	case 2: {
 		if (postGraduateStudentList.pageIndex == postGraduateStudentList.totalPages) {
-			alert("已经是最后一页了");
+			toastr.warning("已经是最后一页了");
 		} else {
 			GetAllSchoolStudentsByPageAndSearch(postGraduateStudentList.pageIndex + 1);
 		}

@@ -1,22 +1,34 @@
 package com.stuinfo.action;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
-import com.opensymphony.xwork2.ActionContext;
+import com.alibaba.excel.EasyExcelFactory;
+import com.alibaba.excel.ExcelWriter;
+import com.alibaba.excel.metadata.Sheet;
+import com.alibaba.excel.support.ExcelTypeEnum;
 import com.opensymphony.xwork2.ActionSupport;
+import com.stuinfo.domain.DO.stuinfo_stubaseinfo;
 import com.stuinfo.domain.DTO.StudentDTO;
 import com.stuinfo.domain.VO.StudentFiled;
-import com.stuinfo.domain.VO.StudentInfoVO;
 import com.stuinfo.service.StudentService;
+
+import util.md5;
 
 @SuppressWarnings("serial")
 public class StudentAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
@@ -25,63 +37,52 @@ public class StudentAction extends ActionSupport implements ServletResponseAware
 	private HttpServletRequest http_request;
 	private StudentDTO stdo;
 	/* private StudentInfoVO studentInfoVO; */
-	private StudentFiled studentFiled;
+	private List<StudentFiled> studentFiled;
 	private InputStream inputStream; // 输出流变量
 	private String excelFileName; // 下载文件名
 
-	public String StuinfoExportToExcel() {
-		StudentInfoVO<StudentDTO> studentPage;
-		/**
-		 * 得到字段
-		 */
-		if (studentFiled == null) {
-			System.out.println("studentFiled==null");
-		} else {
-			// 得到字段
-			System.out.println("studentFiled.name:" + studentFiled.getStu_name_field());
-		}
+	private File file;
+	private String fileFileName;
+	private String fileContentType;
 
-		/**
-		 * 得到记录
-		 */
-
-		if (studentFiled != null) {
-			// 查询记录，封装到页面封装类中
-			studentPage = studentService.findNoPage(stdo);
-
-			// 将封装的页面记录存到值栈中
-			ActionContext.getContext().getValueStack().push(stdo);
-		} else {
-			System.out.println("----------member==null----------");
-
-			// 得到记录
-			studentPage = studentService.findNoPage(stdo);
-		}
-
-		/**
-		 * 写入文件
-		 */
-
+	public void importToDB() {
 		try {
-			HSSFWorkbook wb = new HSSFWorkbook();
-			/**
-			 * 写
-			 */
-			studentService.writeStudentInformation(studentPage, studentFiled, wb);
-			/**
-			 * 写完毕
-			 */
-			// 第七步，将文件存到流中
-			ByteArrayOutputStream os = new ByteArrayOutputStream();
-			wb.write(os);
-			byte[] fileContent = os.toByteArray();
-			ByteArrayInputStream is = new ByteArrayInputStream(fileContent);
-			inputStream = is; // 文件流
-			excelFileName = "学生信息表.xls"; // 设置下载的文件名
-		} catch (Exception e) {
+			FileInputStream is = new FileInputStream(file);
+			Class clazz = stuinfo_stubaseinfo.class;
+			List<Object> list = EasyExcelFactory.read(is, new Sheet(1, 1, clazz));
+			for (Object object : list) {
+				stuinfo_stubaseinfo stubaseinfo = (stuinfo_stubaseinfo) object;
+				stubaseinfo.setStu_id(UUID.randomUUID().toString());
+				stubaseinfo.setStu_password(md5.GetMD5Code("000000"));
+			}
+			studentService.insertInfoToDB(list);
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		return "stuinfoExportToExcel";
+	}
+
+	public void exportToExcel(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ServletOutputStream out = response.getOutputStream();
+		response.setContentType("multipart/form-data");
+		response.setCharacterEncoding("utf-8");
+		response.setHeader("Content-disposition", "attachment;filename=export.xlsx");
+		ExcelWriter writer = new ExcelWriter(out, ExcelTypeEnum.XLSX, true);
+		try {
+			String fileName = new String(
+					("UserInfo " + new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getBytes(), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		Sheet sheet1 = new Sheet(1, 0);
+		sheet1.setSheetName("第一个sheet");
+		writer.write0(studentService.getListString(studentFiled), sheet1);
+		writer.finish();
+
+		out.flush();
+	}
+
+	public void StuinfoExportToExcel() {
+
 	}
 
 	public HttpServletResponse getHttp_response() {
@@ -119,11 +120,11 @@ public class StudentAction extends ActionSupport implements ServletResponseAware
 		this.stdo = stdo;
 	}
 
-	public StudentFiled getStudentFiled() {
+	public List<StudentFiled> getStudentFiled() {
 		return studentFiled;
 	}
 
-	public void setStudentFiled(StudentFiled studentFiled) {
+	public void setStudentFiled(List<StudentFiled> studentFiled) {
 		this.studentFiled = studentFiled;
 	}
 
@@ -149,6 +150,30 @@ public class StudentAction extends ActionSupport implements ServletResponseAware
 
 	public void setStudentService(StudentService studentService) {
 		this.studentService = studentService;
+	}
+
+	public File getFile() {
+		return file;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public String getFileFileName() {
+		return fileFileName;
+	}
+
+	public void setFileFileName(String fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
+	public String getFileContentType() {
+		return fileContentType;
+	}
+
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
 	}
 
 }

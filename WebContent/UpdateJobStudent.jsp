@@ -26,6 +26,7 @@
         <link
 	href="<%=basePath%>css/all_pages.css"
 	rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/toastr.css" rel="stylesheet">
 </head>
 <body>
 <!-- Page Container -->
@@ -218,5 +219,6 @@
         <script src="<%=basePath%>js/jquery-confirm.js"></script> 
         <script src="<%=basePath%>js/JobStudent/UpdateJobStudent.js"></script>
         <script src="<%=basePath%>js/Common/CommonJs.js"></script>
+        <script src="<%=basePath%>js/toastr.js"></script>
 </body>
 </html>

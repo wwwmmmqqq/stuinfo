@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 
 import com.stuinfo.dao.LoginAndLogoutDao;
 import com.stuinfo.domain.DO.stuinfo_ordinarymanager;
-import com.stuinfo.domain.DO.stuinfo_stubaseinfo;
 import com.stuinfo.domain.DO.stuinfo_teacherinfo;
 import com.stuinfo.domain.DTO.StudentDTO;
 
@@ -24,6 +23,7 @@ public class LoginAndLogoutDaoImpl implements LoginAndLogoutDao {
 	// 根据学号得到学生信息
 	@Override
 	public StudentDTO getStudentUserByNum(String username) {
+		StudentDTO studentDTO = new StudentDTO();
 		Session session = getSession();
 		/*
 		 * String hql = "from stuinfo_stubaseinfo where stu_account='" +
@@ -35,10 +35,9 @@ public class LoginAndLogoutDaoImpl implements LoginAndLogoutDao {
 				+ "stuinfo_stu_grade stuinfoStuGrade ," //
 				+ " stuinfo_stu_class stuinfoStuClass "//
 				+ " where stuinfoStuBaseinfo.stu_class_id=stuinfoStuClass.stu_class_id"
-				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='1' and stu_account='"
+				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='1' and stuinfoStuBaseinfo.stu_account='"
 				+ username + "'";
 
-		StudentDTO studentDTO = new StudentDTO();
 		Query query = session.createQuery(hql);
 		studentDTO = (StudentDTO) query.uniqueResult();
 		session.clear();
@@ -70,7 +69,7 @@ public class LoginAndLogoutDaoImpl implements LoginAndLogoutDao {
 	}
 
 	@Override
-	public void saveObj(stuinfo_stubaseinfo newStudent) {
+	public void saveObj(stuinfo_ordinarymanager newStudent) {
 		Session session = getSession();
 		session.saveOrUpdate(newStudent);
 		session.flush();

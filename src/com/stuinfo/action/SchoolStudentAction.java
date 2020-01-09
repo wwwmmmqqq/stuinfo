@@ -60,6 +60,30 @@ public class SchoolStudentAction extends ActionSupport implements ServletRespons
 	 * 将获取到的所有在校学生进行分页
 	 *
 	 */
+	/*
+	 * public void listSchoolStudentByPageAndSearch() throws Exception {
+	 * GsonBuilder gsonBuilder = new GsonBuilder();
+	 * gsonBuilder.setPrettyPrinting();// 格式化json数据 Gson gson =
+	 * gsonBuilder.create();
+	 * http_response.setContentType("text/html;charset=utf-8"); StudentDTO
+	 * studentDTO = (StudentDTO)
+	 * ActionContext.getContext().getSession().get("studentDTO"); studentInfoVO
+	 * = SchoolStudentService.VO_Student_By_PageAndSearch(studentInfoVO);
+	 * http_response.setContentType("text/html;charset=utf-8");
+	 * http_response.getWriter().write(gson.toJson(studentInfoVO)); }
+	 */
+
+	public void listSchoolStudentByPage() throws Exception {
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.setPrettyPrinting();// 格式化json数据
+		Gson gson = gsonBuilder.create();
+		http_response.setContentType("text/html;charset=utf-8");
+		StudentDTO studentDTO = (StudentDTO) ActionContext.getContext().getSession().get("studentDTO");
+		studentInfoVO = SchoolStudentService.VO_Student_By_Page(studentInfoVO);
+		http_response.setContentType("text/html;charset=utf-8");
+		http_response.getWriter().write(gson.toJson(studentInfoVO));
+	}
+
 	public void listSchoolStudentByPageAndSearch() throws Exception {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.setPrettyPrinting();// 格式化json数据

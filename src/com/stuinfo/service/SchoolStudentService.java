@@ -18,4 +18,6 @@ public interface SchoolStudentService {
 
 	public StudentInfoVO VO_Student_By_PageAndSearch(StudentInfoVO studentInfoVO);
 
+	public StudentInfoVO VO_Student_By_Page(StudentInfoVO studentInfoVO);
+
 }

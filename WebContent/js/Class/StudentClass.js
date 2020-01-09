@@ -112,7 +112,7 @@ function AddStudentClass() {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("添加成功！");
+											toastr.success("添加成功！");
 											Get_Student_Class();
 											jc.close();
 										}

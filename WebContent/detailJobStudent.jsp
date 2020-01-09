@@ -26,6 +26,7 @@
         <link
 	href="<%=basePath%>css/all_pages.css"
 	rel="stylesheet" type="text/css" />
+	<link href="<%=basePath%>css/toastr.css" rel="stylesheet">
 </head>
 <body>
 <!-- Page Container -->
@@ -99,10 +100,9 @@
 								id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
 							<li><a href="javascript:void(0)" id="toggle-fullscreen"><i
 									class="fa fa-expand"></i></a></li>
-							<li><a href="javascript:void(0)" id="search-button"><i
-									class="fa fa-search"></i></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+						<li class="user_name"><span>欢迎<span class="name_color">管理员</span>登录</span></li>
 							<li class="dropdown"><a href="javascript:void(0)"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false"  onclick="GetNonReadNotices()"><i
@@ -287,5 +287,6 @@
          <script src="<%=basePath%>js/JobStudent/addJobStudent.js"></script>
            <script src="<%=basePath%>js/JobStudent/detailJobStudent.js"></script>
            <script src="<%=basePath%>js/Common/CommonJs.js"></script>
+           <script src="<%=basePath%>js/toastr.js"></script>
 </body>
 </html>

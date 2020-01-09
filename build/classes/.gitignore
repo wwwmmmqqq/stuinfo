@@ -1,4 +1,6 @@
 /com/
-/util/
-/struts2/
 /spring/
+/struts.xml
+/struts2/
+/test/
+/util/

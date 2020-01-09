@@ -19,7 +19,7 @@ function deleteSchoolStudentInfo(thisStudentInfo) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
 
-											alert("删除成功");
+											toastr.success("删除成功");
 											GetAllSchoolStudentsByPageAndSearch(schoolStudentList.pageIndex);
 										}
 									} else {

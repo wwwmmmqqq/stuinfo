@@ -39,7 +39,7 @@ function UpdatePostGraStudent(thisStudentInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											GetAllPostGraduateStudentsByPageAndSearch(postGraduateStudentList.pageIndex);
 											jc.close();
 										}
@@ -470,7 +470,7 @@ function UpdatePostGraStudent(thisStudentInfo) {
 											+ '" ></td>'
 
 									var select = document
-											.getElementById("stu_year_modify   ");
+											.getElementById("stu_year_modify");
 									var options = select.options;
 									for (i = 0; i < options.length; i++) {
 										var value_i = options[i].value;
@@ -479,7 +479,6 @@ function UpdatePostGraStudent(thisStudentInfo) {
 											options[i].selected = "selected";
 										}
 									}
-
 								}
 
 							} else {

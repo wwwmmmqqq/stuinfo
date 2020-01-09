@@ -23,9 +23,9 @@ function AddJobRecode() {
 			+ '</tr>'
 			+ '<tr>'
 			+ '<td>开始工作时间：</td>'
-			+ '<td><input type="text" class="form-control " id="add_stu_job_indate"/></td>'
+			+ '<td><input type="text" class="form-control date-picker "  id="add_stu_job_indate"/></td>'
 			+ '<td>离职时间：</td>'
-			+ '<td><input type="text" class="form-control " id="add_stu_job_outdate"/></td>'
+			+ '<td><input type="text" class="form-control date-picker "  id="add_stu_job_outdate"/></td>'
 			+ '</tr>' + ' </table>'
 }
 
@@ -50,7 +50,8 @@ function ConfirmAddJobRecode() {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				if (xhr.responseText == "success") {
-					alert("添加成功");
+					toastr.success("添加成功");
+					ListJobRecord();
 					jc.close();
 				}
 			} else {

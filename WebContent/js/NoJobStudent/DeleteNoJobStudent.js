@@ -18,7 +18,7 @@ function DeleteNoJobStudent(thisStudentInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("删除成功");
+											toastr.success("删除成功");
 											GetAllNoJobStudentByPageAndSearch(noJobStudentList.pageIndex);
 										}
 									} else {

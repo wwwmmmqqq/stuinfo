@@ -2,7 +2,6 @@ package com.stuinfo.service.impl;
 
 import com.stuinfo.dao.LoginAndLogoutDao;
 import com.stuinfo.domain.DO.stuinfo_ordinarymanager;
-import com.stuinfo.domain.DO.stuinfo_stubaseinfo;
 import com.stuinfo.domain.DO.stuinfo_teacherinfo;
 import com.stuinfo.domain.DTO.StudentDTO;
 import com.stuinfo.service.LoginAndLogoutService;
@@ -103,11 +102,9 @@ public class LoginAndLogoutServiceImpl implements LoginAndLogoutService {
 	}
 
 	@Override
-	public boolean save_NewStudent(stuinfo_stubaseinfo newStudent) {
-		newStudent.setStu_id(TeamUtil.getUuid());
-		newStudent.setStu_infocreate(TeamUtil.getStringSecond());
-		newStudent.setStu_infomodified(TeamUtil.getStringSecond());
-		newStudent.setStu_password(md5.GetMD5Code("000000"));
+	public boolean save_NewStudent(stuinfo_ordinarymanager newStudent) {
+		newStudent.setOrdinarymanager_id(TeamUtil.getUuid());
+		newStudent.setOrdinarymanager_password(md5.GetMD5Code("000000"));
 		loginAndLogoutDao.saveObj(newStudent);
 		return true;
 

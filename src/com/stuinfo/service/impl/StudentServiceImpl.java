@@ -40,6 +40,12 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
+	public List<List<String>> getListString(List<StudentFiled> studentFiled) {
+		studentDao.getListString(studentFiled);
+		return null;
+	}
+
+	@Override
 	public boolean addNotice(StudentDTO studentDTO, stuinfo_notice stuinfoNotice) {
 		stuinfoNotice.setNotice_id(TeamUtil.getUuid());
 		stuinfoNotice.setNotice_stu_grade(studentDTO.getStuinfoStuGrade().getStu_grade_name());
@@ -79,7 +85,7 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public StudentInfoVO<StudentDTO> findNoPage(StudentDTO stdo) {
-
+		System.out.println("aa" + stdo);
 		StudentInfoVO<StudentDTO> studentInfoPage = new StudentInfoVO<StudentDTO>();
 
 		// 封装当前页数
@@ -301,6 +307,12 @@ public class StudentServiceImpl implements StudentService {
 
 		}
 
+	}
+
+	@Override
+	public int insertInfoToDB(List<Object> list) {
+		studentDao.insertInfoToDB(list);
+		return 0;
 	}
 
 }

@@ -114,7 +114,7 @@ function flip(flipPage) {
 
 	case 1: {
 		if (noJobStudentList.pageIndex - 1 == 0) {
-			alert("已经是第一页了");
+			toastr.warning("已经是第一页了");
 		} else {
 			GetAllNoJobStudentByPageAndSearch(noJobStudentList.pageIndex - 1);
 		}
@@ -122,7 +122,7 @@ function flip(flipPage) {
 	}
 	case 2: {
 		if (noJobStudentList.pageIndex == noJobStudentList.totalPages) {
-			alert("已经是最后一页了");
+			toastr.warning("已经是最后一页了");
 		} else {
 			GetAllNoJobStudentByPageAndSearch(noJobStudentList.pageIndex + 1);
 		}

@@ -46,6 +46,30 @@ public class SchoolStudentServiceImpl implements SchoolStudentService {
 
 	@Override
 	public StudentInfoVO VO_Student_By_PageAndSearch(StudentInfoVO studentInfoVO) {
+		List<StudentDTO> studentSize = schoolStudentDao.listSchoolStudentAll1(studentInfoVO);
+		// 获取总记录数
+		int i = studentSize.size();
+		studentInfoVO.setTotalRecords(i);
+		studentInfoVO.setTotalPages(((i - 1) / studentInfoVO.getPageSize()) + 1);
+		// 判断是否有上一页和下一页
+		if (studentInfoVO.getPageIndex() <= 1) {
+			studentInfoVO.setHavePrePage(false);
+		} else {
+			studentInfoVO.setHavePrePage(true);
+		}
+		if (studentInfoVO.getPageIndex() >= studentInfoVO.getPageSize()) {
+			studentInfoVO.setHaveNextPage(false);
+		} else {
+			studentInfoVO.setHaveNextPage(true);
+		}
+
+		List<StudentDTO> studentDTO = schoolStudentDao.getSchoolStdentByPage1(studentInfoVO);
+		studentInfoVO.setStudentDTO(studentDTO);
+		return studentInfoVO;
+	}
+
+	@Override
+	public StudentInfoVO VO_Student_By_Page(StudentInfoVO studentInfoVO) {
 		/* studentInfoVO = new StudentInfoVO(); */
 		/*
 		 * listSchoolStudentAll()是没有setFirstResult()和setMaxResults()约束的

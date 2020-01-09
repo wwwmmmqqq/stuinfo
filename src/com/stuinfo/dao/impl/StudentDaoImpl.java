@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import com.stuinfo.dao.StudentDao;
 import com.stuinfo.domain.DO.stuinfo_stubaseinfo;
 import com.stuinfo.domain.DTO.StudentDTO;
+import com.stuinfo.domain.VO.StudentFiled;
 
 public class StudentDaoImpl implements StudentDao {
 	private SessionFactory sessionFactory;
@@ -41,6 +42,22 @@ public class StudentDaoImpl implements StudentDao {
 			e.printStackTrace();
 		}
 		return flag;
+	}
+
+	@Override
+	public List<StudentFiled> getListString(List<StudentFiled> studentFiled) {
+		Session session = getSession();
+		String hql = " select new com.stuinfo.domain.DTO.StudentDTO(stuinfoStuBaseinfo,stuinfoStuGrade,stuinfoStuClass) "
+				+ "from  stuinfo_stubaseinfo stuinfoStuBaseinfo," //
+				+ "stuinfo_stu_grade stuinfoStuGrade ," //
+				+ " stuinfo_stu_class stuinfoStuClass "//
+				+ " where stuinfoStuBaseinfo.stu_class_id=stuinfoStuClass.stu_class_id"
+				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id   order by stuinfoStuBaseinfo.stu_infocreate ";
+
+		Query query = session.createQuery(hql);
+		studentFiled = query.list();
+		session.clear();
+		return studentFiled;
 	}
 
 	@Override
@@ -194,6 +211,27 @@ public class StudentDaoImpl implements StudentDao {
 		Query query = session.createQuery(hql);
 		student_list = query.list();
 		return student_list;
+	}
+
+	@Override
+	public int insertInfoToDB(List<Object> list) {
+		int nums = 0;
+		try {
+			Session session = this.getSession();
+			// Transaction tx= session.beginTransaction();
+			for (int i = 0; i < list.size(); i++) {
+				session.save(list.get(i));
+				nums++;
+				if (i % 1000 == 0) { // 每一千条刷新并写入数据库
+					session.flush();
+					session.clear();
+				}
+			}
+			// session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return nums;
 	}
 
 }

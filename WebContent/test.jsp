@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
     <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -9,7 +9,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <link href="<%=basePath%>assets/css/ubuntufonts.css" rel="stylesheet">
 <link href="<%=basePath%>assets/plugins/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -33,6 +32,8 @@
 	rel="stylesheet" type="text/css" />
 
 <link href="<%=basePath%>css/all_pages.css" rel="stylesheet">
+<link href="<%=basePath%>css/toastr.css" rel="stylesheet">
+<link href="<%=basePath%>css/need/laydate.css" rel="stylesheet">
 <link href="<%=basePath%>css/jquery-confirm.css" rel="stylesheet">
 <!-- Theme Styles -->
 <link href="<%=basePath%>assets/css/ecaps.min.css" rel="stylesheet">
@@ -43,11 +44,8 @@
 	<div id="test">
 	
 	</div>
-	<script type="text/javascript">
-	var test=document.getElementById("test");
-	test.innerHTML='<td> <input type="text" class="form-control date-picker"></td>';
-	</script>
-	<!-- <script type="text/javascript">
+	
+ <script type="text/javascript">
 	var xhr = false;
 	xhr = new XMLHttpRequest();
 	var formData = new FormData();
@@ -63,12 +61,12 @@
 			}
 		}
 	}
-	formData.append("newStudent.stu_account","12345");
+	formData.append("newStudent.ordinarymanager_account","23030026");
 	xhr.open("POST", "/stuinfo/loginAndLogout/testPassword");
 	xhr.send(formData);
-	</script> -->
+	</script> 
 	<!-- Javascripts -->
-	<script src="<%=basePath%>assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<script src="<%=basePath%>assets/plugins/jquery/jquery-3.1.0.min.js"></script>
 	<script src="<%=basePath%>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script
 		src="<%=basePath%>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
@@ -85,7 +83,9 @@
 	<script src="<%=basePath%>js/SchStuInfo/GetAllSchoolStudents.js"></script>
 	<script src="<%=basePath%>js/SchStuInfo/UpdateSchoolStudent.js"></script>
 	<script src="<%=basePath%>js/SchStuInfo/DeleteSchoolStudent.js"></script>
+	<script src="<%=basePath%>js/laydate.js"></script>
 	<script src="<%=basePath%>js/Common/CommonJs.js"></script>
+	<script src="<%=basePath%>js/toastr.js"></script>
 	<script src="<%=basePath%>js/jquery-confirm.js"></script>
 </body>
 </html>

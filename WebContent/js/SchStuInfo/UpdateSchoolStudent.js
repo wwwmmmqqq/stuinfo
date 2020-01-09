@@ -39,7 +39,7 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 								if (xhr.readyState == 4) {
 									if (xhr.status == 200) {
 										if (xhr.responseText == "success") {
-											alert("更新成功");
+											toastr.success("更新成功");
 											GetAllSchoolStudentsByPageAndSearch(1);
 											jc.close();
 										}
@@ -68,11 +68,11 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 											"stuinfoStuBaseinfo.stu_name",
 											document
 													.getElementById("stu_name_modify").value);
-							formData
-									.append(
-											"stuinfoStuBaseinfo.stu_photo",
-											document
-													.getElementById("stu_photo_modify").value);
+							/*
+							 * formData .append( "stuinfoStuBaseinfo.stu_photo",
+							 * document
+							 * .getElementById("stu_photo_modify").value);
+							 */
 							formData
 									.append(
 											"stuinfoStuBaseinfo.stu_sex",
@@ -234,11 +234,6 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 											+ '<td><input class="form-control  "  id="stu_name_modify" type="text" value="'
 											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_name
 											+ '"></td>'
-											+ '<td>照片：</td>'
-											+ '<input class="form-control  " id="stu_photo_modify" type="text" value="'
-											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_photo
-											+ '" >'
-
 									new_tr_1 = document.createElement("tr");
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);
@@ -271,7 +266,7 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>出生年月：</td>'
-											+ '<td><input class="form-control laydate-icon"  id="stu_bir_modify"  type="text" onclick="time()" value="'
+											+ '<td><input class="form-control date-picker"  id="stu_bir_modify"  type="text"  value="'
 											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_bir
 											+ '"></td>'
 											+ '<td>户口类型：</td>'
@@ -393,7 +388,9 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 									table_stuinfo_update.firstElementChild
 											.appendChild(new_tr_1);
 									new_tr_1.innerHTML = '<td>学院：</td>'
-											+ '<td><input class="form-control  "  id="stu_const_modify" type="text" ></td>'
+											+ '<td><input class="form-control  "  id="stu_const_modify" type="text" value="'
+											+ schoolStudentListById[0].stuinfoStuBaseinfo.stu_const
+											+ '" ></td>'
 											+ '<td>专业：</td>'
 											+ '<td>'
 											+ '<select class="form-control " id="stu_major_modify" >'
@@ -485,7 +482,15 @@ function updateSchoolStudentInfo(thisStudentInfo) {
 											options[i].selected = "selected";
 										}
 									}
+								/*	var lable_input = document
+											.getElementsByTagName("input");
+									for (i = 0; i < lable_input.length; i++) {
+										if (lable_input[i].value == "undefined"
+												|| lable_input[i].value == "") {
+											lable_input[i].value = "无"
+										}
 
+									}*/
 								}
 
 							} else {

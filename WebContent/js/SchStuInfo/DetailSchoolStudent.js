@@ -7,7 +7,6 @@ function detailSchoolStuById(this_i) {
 
 	var stu_account = document.getElementById('stu_account');
 	var stu_name = document.getElementById('stu_name');
-	var stu_photo = document.getElementById('stu_photo');
 	var stu_sex = document.getElementById('stu_sex');
 	var stu_adress = document.getElementById('stu_adress');
 	var stu_bir = document.getElementById('stu_bir');
@@ -42,8 +41,8 @@ function detailSchoolStuById(this_i) {
 
 				stu_account.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_account;
 				stu_name.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_name;
-				stu_photo.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_photo;
 				stu_sex.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_sex;
+				stu_adress.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_adress;
 				stu_bir.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_bir;
 				stu_familytype.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_familytype;
 				stu_policits.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_policits;
@@ -51,6 +50,8 @@ function detailSchoolStuById(this_i) {
 				stu_idcard.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_idcard;
 				stu_phenumber.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_phenumber;
 				stu_fathername.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_fathername;
+				stu_adress.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_adress;
+				stu_fathernum.value == schoolStudentListById[0].stuinfoStuBaseinfo.stu_fathernum;
 				stu_lev.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_lev;
 				stu_change.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_change;
 				stu_college.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_college;
@@ -60,6 +61,14 @@ function detailSchoolStuById(this_i) {
 				stu_grade_id.value = schoolStudentListById[0].stuinfoStuGrade.stu_grade_name;
 				stu_year.value = schoolStudentListById[0].stuinfoStuBaseinfo.stu_year;
 
+				var lable_input = document.getElementsByTagName("input");
+				for (i = 0; i < lable_input.length; i++) {
+					if (lable_input[i].value == "undefined"
+							|| lable_input[i].value == "") {
+						lable_input[i].value = "无"
+					}
+
+				}
 			}
 
 		}

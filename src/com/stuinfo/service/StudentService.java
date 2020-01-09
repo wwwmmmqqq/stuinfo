@@ -26,4 +26,8 @@ public interface StudentService {
 
 	public boolean UpdatePassword(String stu_id, String newPassword);
 
+	public int insertInfoToDB(List<Object> list);
+
+	public List<List<String>> getListString(List<StudentFiled> studentFiled);
+
 }

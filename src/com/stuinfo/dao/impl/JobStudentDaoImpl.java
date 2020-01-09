@@ -51,7 +51,7 @@ public class JobStudentDaoImpl implements JobStudentDao {
 				+ "stuinfo_stu_grade stuinfoStuGrade ," //
 				+ " stuinfo_stu_class stuinfoStuClass "//
 				+ " where stuinfoStuBaseinfo.stu_class_id=stuinfoStuClass.stu_class_id"
-				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='4' order by stuinfoStuBaseinfo.stu_infocreate";
+				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='4' ";
 
 		/* String hql = " from stuinfo_stu_onjob"; */
 		Query query = session.createQuery(hql);
@@ -71,7 +71,7 @@ public class JobStudentDaoImpl implements JobStudentDao {
 				+ "stuinfo_stu_grade stuinfoStuGrade ," //
 				+ " stuinfo_stu_class stuinfoStuClass "//
 				+ " where stuinfoStuBaseinfo.stu_class_id=stuinfoStuClass.stu_class_id"
-				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='4' order by stuinfoStuBaseinfo.stu_infocreate";
+				+ " and stuinfoStuClass.stu_grade_id=stuinfoStuGrade.stu_grade_id and stuinfoStuBaseinfo.stu_status='4' ";
 
 		/* String hql = " from stuinfo_stu_onjob"; */
 		Query query = session.createQuery(hql);

@@ -1,6 +1,6 @@
 package com.stuinfo.service;
 
-import com.stuinfo.domain.DO.stuinfo_stubaseinfo;
+import com.stuinfo.domain.DO.stuinfo_ordinarymanager;
 
 public interface LoginAndLogoutService {
 
@@ -8,6 +8,6 @@ public interface LoginAndLogoutService {
 
 	public Object loginInformation(int role, String username);
 
-	public boolean save_NewStudent(stuinfo_stubaseinfo newStudent);
+	public boolean save_NewStudent(stuinfo_ordinarymanager newStudent);
 
 }

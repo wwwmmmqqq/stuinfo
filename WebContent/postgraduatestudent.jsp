@@ -37,6 +37,7 @@
 <link
 	href="<%=basePath%>css/all_pages.css"
 	rel="stylesheet" type="text/css" />
+	<script src="<%=basePath%>js/toastr.js"></script>
 	<link href="<%=basePath%>css/need/laydate.css" rel="stylesheet">
 	<link href="<%=basePath%>css/jquery-confirm.css" rel="stylesheet"> 
 <!-- Theme Styles -->
@@ -119,10 +120,12 @@
 								id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
 							<li><a href="javascript:void(0)" id="toggle-fullscreen"><i
 									class="fa fa-expand"></i></a></li>
-							<li><a href="javascript:void(0)" id="search-button"><i
-									class="fa fa-search"></i></a></li>
+							<li><a data-toggle="collapse" data-parent="#accordion" 
+				   href="#search_group"><i
+									class="fa fa-search "></i></a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+						<li class="user_name"><span>欢迎<span class="name_color">管理员</span>登录</span></li>
 							<li class="dropdown"><a href="javascript:void(0)"
 								class="dropdown-toggle" data-toggle="dropdown" role="button"
 								aria-haspopup="true" aria-expanded="false"  onclick="GetNonReadNotices()"><i
@@ -142,6 +145,7 @@
 								aria-haspopup="true" aria-expanded="false">  <i class="fa fa-user"></i></a>
 								<ul class="dropdown-menu">
 								<li><a href="#">导入</a></li>
+									<!-- <li><a href="#" onclick="ChooseInfoToExcel()" data-toggle="modal" data-target="#to_excel_modal" >导出excel表</a></li> -->
 									<li><a onclick="UpdatePassword()">修改密码</a></li>
 									<li><a href="#">退出登录</a></li>
 								</ul></li>
@@ -152,6 +156,39 @@
 				<!-- /.container-fluid --> </nav>
 			</div>
 			<!-- /Page Header -->
+				<!-- Search Content -->
+			<div class=" panel-collapse collapse" id="search_group">
+			<div class="panel panel-body">
+		<div id="select_group" >
+	<div class="col-md-3 input_group">
+				
+			<table>
+				<tbody>
+					<td>
+							<label>请选择搜索条件：</label>
+					</td>
+					<td>
+						<select id="sele" class="form-control">
+		<option selected="selected" disabled="disabled" >请选择</option>
+<option value="学号">学号</option>
+	<option value="姓名">姓名</option>
+	<option value="班级">班级</option>
+	<option value="年级">年级</option>
+	<option value="专业">专业</option>
+	</select>
+					</td>
+				</tbody>
+			</table>
+	</div>
+		</div>
+		<div  class="col-xs-2 sure_search">
+			<a><button class="btn btn-success ">确认搜索</button></a>
+			</div>
+			</div>	
+				
+		
+			</div>
+				<!--/ Search Content -->
 			<!-- Page Inner -->
 			<div class="page-inner">
 				<div class="page-title">
@@ -323,6 +360,7 @@
 			GetAllPostGraduateStudentsByPageAndSearch(1);
 			Get_Student_Class();
 			NoticeRedPoint();
+			SearchByOption();
 		}
 		function time(){
 			!function(){
@@ -378,6 +416,7 @@ laydate(end);
 	<script src="<%=basePath%>js/PostGraduateStudent/DeletePostGraduateStudent.js"></script>
 	<script src="<%=basePath%>js/Common/CommonJs.js"></script>
 	<script src="<%=basePath%>js/laydate.js"></script>
+	<script src="<%=basePath%>js/toastr.js"></script>
 	 <script src="<%=basePath%>js/jquery-confirm.js"></script> 
 </body>
 </html>

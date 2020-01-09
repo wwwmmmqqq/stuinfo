@@ -46,6 +46,8 @@ function detailNoJobStudentById(this_i) {
 				stu_name.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_name;
 				stu_photo.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_photo;
 				stu_sex.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_sex;
+				stu_adress.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_adress;
+				stu_fathernum.value == noJobStudentListById[0].stuinfoStuBaseinfo.stu_fathernum;
 				stu_bir.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_bir;
 				stu_familytype.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_familytype;
 				stu_policits.value = noJobStudentListById[0].stuinfoStuBaseinfo.stu_policits;

@@ -1,30 +1,54 @@
 package com.stuinfo.domain.DO;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 public class stuinfo_stubaseinfo {
+
 	private String stu_id;
+	@ExcelProperty(index = 0)
 	private String stu_account;
 	private String stu_password;
+	@ExcelProperty(index = 1)
 	private String stu_name;
+	@ExcelProperty(index = 2)
 	private String stu_sex;
+	@ExcelProperty(index = 3)
 	private String stu_adress;
+	@ExcelProperty(index = 4)
 	private String stu_bir;
 	private String stu_photo;
+	@ExcelProperty(index = 5)
 	private String stu_familytype;
+	@ExcelProperty(index = 6)
 	private String stu_nation;
+	@ExcelProperty(index = 7)
 	private String stu_policits;
+	@ExcelProperty(index = 8)
 	private String stu_idcard;
+	@ExcelProperty(index = 9)
 	private String stu_phenumber;
+	@ExcelProperty(index = 10)
 	private String stu_fathername;
+	@ExcelProperty(index = 11)
 	private String stu_fathernum;
+	@ExcelProperty(index = 12)
 	private String stu_mothername;
+	@ExcelProperty(index = 13)
 	private String stu_mothernum;
+	@ExcelProperty(index = 14)
 	private String stu_lev;
+	@ExcelProperty(index = 15)
 	private String stu_change;
+	@ExcelProperty(index = 16)
 	private String stu_college;
+	@ExcelProperty(index = 17)
 	private String stu_const;
+	@ExcelProperty(index = 18)
 	private String stu_major;
 	private String stu_class_id;
+	@ExcelProperty(index = 19)
 	private String stu_year;
+	@ExcelProperty(index = 20)
 	private String stu_status;
 	private String stu_infocreate;
 	private String stu_infomodified;
